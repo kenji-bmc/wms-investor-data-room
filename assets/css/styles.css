@@ -284,7 +284,7 @@ ol {
   min-height: 76px;
 }
 .brand__logo {
-  height: 26px;
+  height: 34px;
   width: auto;
 }
 .site-header__meta {
@@ -1015,7 +1015,7 @@ ol {
   flex-wrap: wrap;
 }
 .site-footer__brand .brand__logo {
-  height: 24px;
+  height: 32px;
 }
 .site-footer__tagline {
   font-size: 14px;

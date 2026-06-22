@@ -2,6 +2,9 @@
 .DS_Store
 Thumbs.db
 
+# Local reference screenshots (not part of the site)
+Screenshot*.png
+
 # Editor / tooling
 .claude/
 node_modules/
