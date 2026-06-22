@@ -1,0 +1,12 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor / tooling
+.claude/
+node_modules/
+*.log
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars

@@ -1,0 +1,32 @@
+# Cloudflare Pages — HTTP headers
+# Docs: https://developers.cloudflare.com/pages/configuration/headers/
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
+  X-Frame-Options: SAMEORIGIN
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; font-src 'self'; frame-src https://forms.cloud.microsoft https://forms.office.com; frame-ancestors 'self'; base-uri 'self'; form-action 'self'
+  #
+  # NOTES
+  #  - frame-src is locked to the Microsoft Forms hosts that serve the embedded
+  #    investor form. Add any other provider origins here if you change forms.
+  #  - frame-ancestors 'self' stops other sites embedding THIS page. If you want
+  #    to embed this page inside wmstratospheric.com, change it to:
+  #      frame-ancestors 'self' https://wmstratospheric.com https://*.wmstratospheric.com
+  #    and remove the X-Frame-Options line above (CSP supersedes it).
+  #  - 'unsafe-inline' covers the tiny inline <script> (adds the `js` class) and
+  #    inline style attributes. To tighten, replace with a SHA-256 hash/nonce.
+
+# Long-cache immutable, fingerprint-free static assets
+/assets/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/img/*
+  Cache-Control: public, max-age=604800
+
+/assets/css/*
+  Cache-Control: public, max-age=86400
+
+/assets/js/*
+  Cache-Control: public, max-age=86400
