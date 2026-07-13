@@ -49,30 +49,7 @@ inline form. Nothing to configure — it's automatic.
 > If this whole page will itself be embedded inside `wmstratospheric.com`, also update
 > `frame-ancestors` as noted in `_headers`.
 
-## 3. Basic Auth (password gate)
-
-The whole site sits behind HTTP Basic Auth via a Pages Function
-(`functions/_middleware.js`). It **fails closed** — until credentials are set,
-every request returns 503, so the site is never accidentally public.
-
-Set the credentials in the Pages dashboard (do **not** commit them):
-
-**Pages project → Settings → Environment variables** — add to both
-**Production** and **Preview**:
-
-| Variable              | Value                    | Type             |
-| --------------------- | ------------------------ | ---------------- |
-| `BASIC_AUTH_USERNAME` | your chosen username     | Plaintext        |
-| `BASIC_AUTH_PASSWORD` | your chosen password     | **Encrypt** (secret) |
-
-Then redeploy. Visitors get a browser username/password prompt before the page
-loads. To rotate credentials, edit the env vars and redeploy — no code change.
-
-> Credentials are **shared** across all investors. For per-investor email login
-> (one-time PIN, audit log), use Cloudflare Access (Zero Trust) instead — that's
-> dashboard-only and needs no repo code.
-
-## 4. Deploy to Cloudflare Pages
+## 3. Deploy to Cloudflare Pages
 
 **Option A — Wrangler (CLI), from this directory:**
 
